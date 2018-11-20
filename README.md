@@ -3,4 +3,4 @@
 API's we're planning to use:
 * New York Times Movies Review
 * OMDB
-* Goodreads
+* New York Public Library 
