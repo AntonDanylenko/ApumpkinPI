@@ -21,3 +21,11 @@ Came up with new idea for project after another group had the same idea.
 Searched for movie APIs that would fit the project.
 Started on the design document and its contents.
 --------------------------------------------------------------
+
+danylenkoA -- 2018-11-26 13:58
+--------------------------------------------------------------
+Updated design doc component map, site map, and team roles.
+Named site EncycloCinema.
+Updated README.
+Added new features to the project idea.
+--------------------------------------------------------------
