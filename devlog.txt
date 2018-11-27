@@ -24,7 +24,10 @@ Started on the design document and its contents.
 
 danylenkoA -- 2018-11-26 13:58
 --------------------------------------------------------------
-Updated design doc component map, site map, and team roles.
+Updated design doc:
+    Component map now integrates user accounts and saving movies.
+    Site map updated with login, register, saved movies page, etc.
+    Team roles are now more detailed with individual functions assigned.
 Named site EncycloCinema.
 Updated README.
 Added new features to the project idea.
