@@ -39,3 +39,9 @@ Created the python code for the flask app:
     Added necessary import methods for testing phase
     Added outline for different methods
 --------------------------------------------------------------
+
+huiminW -- 2018-11-29 13:49
+--------------------------------------------------------------
+Edited the html pages to use jinja. Modularized templates with a
+base html page called template.html
+--------------------------------------------------------------
