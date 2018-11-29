@@ -32,3 +32,10 @@ Named site EncycloCinema.
 Updated README.
 Added new features to the project idea.
 --------------------------------------------------------------
+
+zaneW -- 2018-11-28 13:34
+--------------------------------------------------------------
+Created the python code for the flask app:
+    Added necessary import methods for testing phase
+    Added outline for different methods
+--------------------------------------------------------------
