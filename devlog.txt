@@ -45,3 +45,8 @@ huiminW -- 2018-11-29 13:49
 Edited the html pages to use jinja. Modularized templates with a
 base html page called template.html
 --------------------------------------------------------------
+
+derekS -- 2018-11-29 14:09
+--------------------------------------------------------------
+Began working on search functionality
+--------------------------------------------------------------

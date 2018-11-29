@@ -1,5 +1,4 @@
-<<<<<<< Updated upstream
-{% extends "template.html" %}    
+{% extends "template.html" %}
 {% block title %} Welcome {% block title %}
 {% block body %}
 <div class="grid-container">
@@ -25,52 +24,6 @@
       <div class="large-3 medium-3 cell">
         <input type="text" placeholder="Search" />
         <a href="#" class="success button">Search</a>
-=======
-<!doctype html>
-<html class="no-js" lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.0/css/foundation.css">
-    <script src = "https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.0/js/foundation.min.js"></script>
-    <script src = "https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.0/js/vendor/jquery.min.js"></script>
-  </head>
-  <body>
-    <div class="grid-container">
-      <div class="grid-x grid-padding-x">
-        <div class="large-12 cell">
-          <h1>EncycloCinema</h1>
-        </div>
-      </div>
-      <div>
-        <div>
-          <form>
-            <div class="grid-x grid-padding-x">
-              <div class="large-3 medium-3 cell">
-                <label>Search by...</label>
-                <form name="select" method="POST">
-                <select>
-                  <option value="husker">Movie Name</option>
-                  <option value="starbuck">Date of Release</option>
-                  <option value="hotdog">Cast Member</option>
-                  <option value="apollo">Genre</option>
-                </select>
-              </form>
-              </div>
-            </div>
-            <div class="grid-x grid-padding-x">
-              <div class="large-3 medium-3 cell">
-                <form action="/search" name="search" method="POST">
-                <input type="text" name="search" placeholder="Search">
-                <a href="/search" class="success button">Search</a>
-                </form>
-              </div>
-            </div>
-          </form>
-        </div>
->>>>>>> Stashed changes
       </div>
     </div>
   </form>
