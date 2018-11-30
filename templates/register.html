@@ -1,0 +1,44 @@
+{% extends "template.html" %}
+{% block title %}Register{% endblock %}
+{% block body %}
+{% set msgs = get_flashed_messages() %}
+<br>
+{% for msg in msgs %}
+<p style="color: red">{{msg}}</p>
+{% endfor %}
+  <h1> Register</h1>
+  
+  <form action="#" method="POST">
+	<div class="row">
+		<div class="small-3 columns">
+			<label for="right-label" class="right">Username: </label>
+		</div>
+		<div class="small-9 columns">
+			<input type="text" id="right-label" placeholder="bKernighan">
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-3 columns">
+			<label for="right-label" class="right">Password: </label>
+		</div>
+		<div class="small-9 columns">
+			<input type="password" name="new_pass">
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-3 columns">
+			<label for="right-label" class="right">Confirm password: </label>
+		</div>
+		<div class="small-9 columns">
+			<input type="password" name="confirm_pass">
+		</div>
+	</div>
+    <button type="submit">Register</button>
+  </form>
+  <br>
+  
+  <form action="/">
+    <button type="submit">Go back</button>
+  </form>
+
+{% endblock %}
