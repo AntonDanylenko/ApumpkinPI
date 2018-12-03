@@ -6,21 +6,25 @@
      <div class="top-bar">
         <div class="top-bar-left">
           <ul class ="menu">
-            <li class="menu-text" data-magellan>Nav Bar</li>
-            <li><a href="#">Link One</a></li>
-            <li><a href="#">Link Two</a></li>
-            <li><a href="#">Link Three</a></li>
+            <li class="menu-text" data-magellan>EncycloCinema</li>
           </ul>
         </div>
         <div class="top-bar-right">
           <ul class="menu">
-            <li><input type="search" placeholder="Search"></li>
-            <li><button type="button" class="button">Search</button></li>
+            <li><label>Search by...  </label></li>
+            <li><select name="choice">
+                <option value="name">Movie Name</option>
+                <option value="date">Date of Release</option>
+                <option value="cast">Cast Member</option>
+                <option value="genre">Genre</option>
+              </select></li>
+            <li><input type="text" placeholder="Search" /></li>
+            <li><a href="#" class="success button">Search</a></li>
           </ul>
         </div>
       </div>
   </div>
-  <div>
+  <!--<div>
     <div class="large-12 cell">
       <h1>EncycloCinema</h1>
     </div>
@@ -41,6 +45,6 @@
         </div>
       </div>
     </form>
-  </div>
+  </div>-->
 </div>
 {% endblock %}
