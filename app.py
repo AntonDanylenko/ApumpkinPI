@@ -28,18 +28,19 @@ def generate():
 
 @app.route("/search", methods = ["POST", "GET"])
 def search():
-    key = "b7503b8d"
-    omdb = "http://www.omdbapi.com/?apikey=" + key + "&"
-    mtitle = "t=" + request.form['search'] # gets the movie title that was searched and formats it for the api to work
-    omdburl = omdb + mtitle
-    x = urllib.request.urlopen(omdburl).read()
-    mdata = json.loads(x)
-    #print(mdata)
-    args = {}
-    args['title'] = mdata['Title']
-    args['year'] = mdata['Year']
-    args['actors'] = mdata['Actors']
-    args['rating'] = mdata['Ratings']
+    if (request.select['choice'] == "name"):
+        key = "b7503b8d"
+        omdb = "http://www.omdbapi.com/?apikey=" + key + "&"
+        mtitle = "t=" + request.form['search'] # gets the movie title that was searched and formats it for the api to work
+        omdburl = omdb + mtitle
+        x = urllib.request.urlopen(omdburl).read()
+        mdata = json.loads(x)
+        #print(mdata)
+        args = {}
+        args['title'] = mdata['Title']
+        args['year'] = mdata['Year']
+        args['actors'] = mdata['Actors']
+        args['rating'] = mdata['Ratings']
     return render_template('movie.html', **args)
 
 if (__name__ == "__main__"):
