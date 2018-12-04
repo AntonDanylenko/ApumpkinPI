@@ -23,7 +23,15 @@ EncycloCinema is a site where you can input a movie name, date, or genre and rec
 5. Go to [http://127.0.0.1:5000/](http://127.0.0.1:5000/) on your preffered browser to open the site.
 
 
-### Api's we're planning to use:
-* New York Times Movies Review
-* OMDB
-* New York Public Library 
+### Api Information
+#### New York Times Movies Review
+Provides movie reviews and ratings.
+Obtain an API key [here](https://developer.nytimes.com/signup).
+
+#### OMDB
+Provides thorough information about movies.
+Currently there is an issue with getting API key, will be updated soon.
+
+#### New York Public Library 
+Provides thorough information about books.
+Get API key by signing up [here](http://api.repo.nypl.org/).
