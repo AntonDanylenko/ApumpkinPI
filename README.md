@@ -13,10 +13,10 @@ EncycloCinema is a site where you can input a movie name, date, or genre and rec
 1. Clone the ApumpkinPI repo.
 2. Enter your venv.
   * If you do not have a virtual environment:
-    i) Install virtualenv with ```$ pip install virtualenv```
-    ii) Make your venv with ```$ python3 -m venv venv_name```
-    iii) Activate venv with ```$ . /venv_name/bin/activate```
-    iiii) When done, deactivate venv with ```$ deactivate```
+     * Install virtualenv with ```$ pip install virtualenv```
+     * Make your venv with ```$ python3 -m venv venv_name```
+     * Activate venv with ```$ . /venv_name/bin/activate```
+     * When done, deactivate venv with ```$ deactivate```
 3. Install all necessary pluginswith:
 ```(venv)$pip install -r <path-to-file>requirements.txt```
 4. Run ```$ python app.py```
