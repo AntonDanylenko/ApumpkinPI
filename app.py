@@ -3,9 +3,9 @@
 # P01 -- ArRESTed Development
 # 2018-11-28
 
-import json, urllib
+import json, urllib, os
 
-from flask import Flask, render_template, flash, request
+from flask import Flask, render_template, flash, request, session
 
 app = Flask(__name__)
 
@@ -42,7 +42,7 @@ def search():
         omdburl = omdb + mtitle
         x = urllib.request.urlopen(omdburl).read()
         mdata = json.loads(x)
-        #print(mdata)
+        print(mdata)
     if (request.select['choice'] == "date"):
         myear = "y=" + request.form['search'] # gets the year that was searched and formats it
         omdburl = omdb + myear
