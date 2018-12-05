@@ -8,10 +8,19 @@
           <h1>EncycloCinema</h1>
         </div>
         <div class="top-bar-right">
-          <form>
-            <a href="#" class="button primary">Login</a>
-            <a href="#" class="button secondary">Register</a>
-          </form>
+          <ul class="menu">
+            <li><label>Search by...  </label></li>
+            <form action = "/search">
+            <li><select name="choice">
+                <option value="name">Movie Name</option>
+                <option value="date">Date of Release</option>
+                <option value="cast">Cast Member</option>
+                <option value="genre">Genre</option>
+              </select></li>
+            </form>
+            <li><input type="text" placeholder="Search" /></li>
+            <li><a href="/search" class="success button">Search</a></li>
+          </ul>
         </div>
       </div>
   </div>
