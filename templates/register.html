@@ -8,35 +8,36 @@
 {% endfor %}
   <h1> Register</h1>
   
-  <form action="#" method="POST">
-	<div class="row">
-		<div class="small-3 columns">
-			<label for="right-label" class="right">Username: </label>
+<form>
+	<div class="grid-x grid-padding-x">
+		<div class="large-6 columns cell">
+			<label>Username
+				<input type="text" placeholder="large-6.columns" />
+			</label>
 		</div>
-		<div class="small-9 columns">
-			<input type="text" id="right-label" placeholder="bKernighan">
-		</div>
-	</div>
-	<div class="row">
-		<div class="small-3 columns">
-			<label for="right-label" class="right">Password: </label>
-		</div>
-		<div class="small-9 columns">
-			<input type="password" name="new_pass">
+		<div class="large-6 columns cell">
+			<label>Password
+				<input type="password" placeholder="large-6.columns" />
+			</label>
 		</div>
 	</div>
-	<div class="row">
-		<div class="small-3 columns">
-			<label for="right-label" class="right">Confirm password: </label>
-		</div>
-		<div class="small-9 columns">
-			<input type="password" name="confirm_pass">
+	<div class="grid-x grid-padding-x">
+		<div class="large-12 columns cell">
+			<label>Favorite Genre
+				<select>
+					<option value="pumpkin">pumpkin</option>
+					<option value="squash">squash</option>
+					<option value="orangeleaves">orange leaves</option>
+					<option value="Thanksgiving">Thanksgiving</option>
+				</select>
+			</label>
 		</div>
 	</div>
-    <button type="submit">Register</button>
-  </form>
-  <br>
+</form> 
   
-  <a href="#" class="success button">Go back</button>
+  <button> <a href="#" class="button"> Submit </a></button>
+
+
+  <button> <a href="#" class="success button">Go back </a></button>
 
 {% endblock %}

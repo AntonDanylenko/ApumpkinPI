@@ -1,36 +1,27 @@
-{% extends "template.html"}
+{% extends "template.html" %}
 {% set msgs = get_flashed_messages() %}
-{% block title %} Login {% block title %}
+{% block title %} Login {% endblock %}
 {% block body %}
 {% for msg in msgs %}
 <p style="color: red">{{msg}}</p>
 {% endfor %}
 
-<form method="POST">
-  <!--<div class="row">-->
-    <div class="small-8">
-      <div class="row">
-        <div class="small-3 columns">
-          <label for="right-label" class="right">Username: </label>
-        </div>
-        <div class="small-9 columns">
-          <input type="text" id="right-label" placeholder="bKernighan">
-        </div>
-      </div>
-	  <div class="row">
-        <div class="small-3 columns">
-          <label for="right-label" class="right">Password: </label>
-        </div>
-        <div class="small-9 columns">
-          <input type="password" id="right-label">
-        </div>
-      </div>
-    </div>
-    <button type="submit">Login</button>
-  <!--</div>-->
-</form>
-
+<form>
+	<div class="grid-x grid-padding-x">
+		<div class="large-6 columns cell">
+			<label>Username
+				<input type="text" placeholder="large-6.columns" />
+			</label>
+		</div>
+		<div class="large-6 columns cell">
+			<label>Password
+				<input type="password" placeholder="large-6.columns" />
+			</label>
+		</div>
+	</div>
+</form> 
+  
 <form action="/">
-    <button type="submit">Go back</button>
+    <button type="submit" class="button">Go back</button>
 </form>
 {% endblock %}
