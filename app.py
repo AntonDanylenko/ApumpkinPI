@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def generate():
-    return render_template("login.html")
+    return render_template("homepage.html")
 '''
 @app.route("/login")
     render_template("login.html")
