@@ -67,7 +67,7 @@ Gave up on my cool, super ui friendly grid idea because the xy
 huiminW -- 2018-12-05 02:10
 --------------------------------------------------------------
 Update register.html and login.html to have a form with foundation
-Also concluded with team members that users would input fav 
+Also concluded with team members that users would input fav
     genre with they register and that is how we will
     recommend movies
 --------------------------------------------------------------
@@ -80,4 +80,8 @@ Removed "recommended movies" section of html. Have decided
     to rely on jinja instead.
 --------------------------------------------------------------
 
-
+derekS -- 2018-12-05 14:05
+--------------------------------------------------------------
+Tried to finish search functionality on app.py
+THere are bugs.
+--------------------------------------------------------------

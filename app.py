@@ -49,7 +49,7 @@ def search():
         x = urllib.request.urlopen(omdburl).read()
         mdata = json.loads(x)
         print(mdata)
-
+        
     #if (choice == "date"):
     #    myear = "y=" + request.form['search'] # gets the year that was searched and formats it
     #    omdburl = omdb + myear
