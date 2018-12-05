@@ -3,9 +3,9 @@
 # P01 -- ArRESTed Development
 # 2018-11-28
 
-import json, urllib
+import json, urllib, os
 
-from flask import Flask, render_template, flash, request
+from flask import Flask, render_template, flash, request, session
 
 app = Flask(__name__)
 
@@ -58,7 +58,7 @@ def search():
 
     #if (choice == "cast"):
     #if (choice == "genre"):
-    
+
     args = {}
     args['title'] = mdata['Title']
     args['year'] = mdata['Year']
