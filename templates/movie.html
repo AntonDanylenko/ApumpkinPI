@@ -1,44 +1,33 @@
 {% extends "template.html" %}
-{% block title %} {{title}} {% block title %}
+{% block title %} {{title}} {% endblock %}
 {% block body %}
-    <div class="grid-container">
-      <div class="grid-x grid-padding-x">
-        <div class="large-12 cell">
-          <h1> {{title}} </h1>
-		  <img src="#"> Image goes here</img>
-        </div>
-      </div>
-	  <div>
-		<h1>Tables</h1>
-          <table>
-            <tr>
-              <th>Description</th>
-              <td> {{descr}} </td>
-            </tr>
-			<tr>
-			  <th>Actors</th>
-			  <td> {{actors}} </td>
-			</tr>
-			<tr>
-			  <th>Year Released</th>
-			  <td> {{year}} </td>
-			</tr>
-			<tr>
-			  <th>Rating</th>
-			  <td> {{rating}} </td>
-			</tr>
-			<tr>
-			  <th>Genre</th>
-              <td> {{genre}} </td>
-			</tr>
-            <tr>
-              <th>Book Adaptation</th>
-              <td> {{book}} </td>
-            </tr>
-		</table>
-	  </div>
+<h1> {{title}} </h1>
 
-      <p><a href="#" class="button">Favorite</a><br/>
+<article class="grid-container">
+    <div class="grid-x grid-padding-y grid-margin-x">
+        <div class="cell"> {{description}} </div>
+    </div>
+
+    <div class="grid-x grid-padding-y grid-margin-x">
+        <div class="cell medium-4"> {{year}} </div>
+        <div class="cell medium-4"> {{genre}} </div>
+        <div class="cell medium-4"> {{rating}} </div>
+    </div>
+
+    <div class="grid-x grid-padding-y grid-margin-x">
+        <div class="cell"> {{actors}} </div>
+    </div>
+
+    <div class="grid-x grid-padding-y grid-margin-x">
+        <div class="cell"> 
+            {{author}}
+            {{critique}}
+        </div>
+    </div>
+
+    <div class="grid-x grid-padding-y grid-margin-x">
+        <div class="cell medium-6"> {{mposter}} </div>
+        <div class="cell medium-6"> {{bposter}} </div>
     </div>
     <a href="#" class="secondary button">Return</a></p>
 {% endblock %}

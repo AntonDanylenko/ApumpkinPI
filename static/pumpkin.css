@@ -1,0 +1,12 @@
+.cell {
+    text-align: center;
+    color: white;
+    background: #1779ba;
+}
+
+.grid-padding-y {
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+}
+
+
