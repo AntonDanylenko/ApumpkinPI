@@ -72,4 +72,12 @@ Also concluded with team members that users would input fav
     recommend movies
 --------------------------------------------------------------
 
+huiminW -- 2018-12-05 14:00
+--------------------------------------------------------------
+Update register.html and login.html to look prettier
+Fixed the nav bar on homepage to make the search bar "stick out"
+Removed "recommended movies" section of html. Have decided
+    to rely on jinja instead.
+--------------------------------------------------------------
+
 

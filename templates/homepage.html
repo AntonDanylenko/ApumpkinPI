@@ -1,7 +1,7 @@
 {% extends "template.html" %}
 {% block title %} Welcome {% endblock %}
 {% block body %}
-<div class="grid-container">
+<div class="grid-container" style="max-width: 100rem">
   <div class="contain-to-grid sticky">
      <div class="top-bar">
         <div class="top-bar-left">
@@ -15,7 +15,7 @@
         </div>
       </div>
   </div>
-  <div class="grid-3 grid-margin-0">
+  <div class="grid-x">
     <div class="contain-to-grid sticky">
        <div class="top-bar">
          <div class="top-bar-left">
@@ -37,7 +37,6 @@
   </div>
   <br>
   <div>
-      <h4> {{user}}'s Recommend Movies </h4>
       {{recommendation}}
   </div>
   <br>

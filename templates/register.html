@@ -6,24 +6,25 @@
 {% for msg in msgs %}
 <p style="color: red">{{msg}}</p>
 {% endfor %}
-  <h1> Register</h1>
+<center>
+<h3 class="top-block"> Register</h1>
   
 <form>
 	<div class="grid-x grid-padding-x">
-		<div class="large-6 columns cell">
-			<label>Username
-				<input type="text" placeholder="large-6.columns" />
+		<div class="medium-6 columns cell">
+			<label class="form-label">Username
+				<input type="text" placeholder="username" />
 			</label>
 		</div>
-		<div class="large-6 columns cell">
-			<label>Password
-				<input type="password" placeholder="large-6.columns" />
+		<div class="medium-6 columns cell">
+			<label class="form-label">Password
+				<input type="password" placeholder="username" />
 			</label>
 		</div>
 	</div>
 	<div class="grid-x grid-padding-x">
-		<div class="large-12 columns cell">
-			<label>Favorite Genre
+		<div class="medium-12 columns cell">
+			<label class="form-label">Favorite Genre
 				<select>
 					<option value="pumpkin">pumpkin</option>
 					<option value="squash">squash</option>
@@ -34,10 +35,12 @@
 		</div>
 	</div>
 </form> 
-  
-  <button> <a href="/" class="button"> Submit </a></button>
-
-
-  <button> <a href="/" class="success button">Go back </a></button>
-
+<br> 
+<form action="/">
+  <button> <a href="/" class="success button"> Submit </a></button>
+</form>
+<form action="/">
+  <button> <a href="/" class="button">Go back </a></button>
+</form>
 {% endblock %}
+</center>

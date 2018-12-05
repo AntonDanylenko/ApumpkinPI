@@ -9,4 +9,21 @@
     padding-bottom: 0.4rem;
 }
 
+.form-label {
+    color: white;
+    font-size:1.5rem;
+}
 
+.top-block {
+    font-size:2rem;
+    color: #1779ba;
+}
+
+.button.success {
+    background: #86BBDA;
+}
+
+.button.success:hover {
+    background: #1779ba;
+    color: white;
+}
