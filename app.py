@@ -14,6 +14,8 @@ app = Flask(__name__)
 user = None
 currStory = None
 app.secret_key = os.urandom(32)
+choice = ""
+search = ""
 
 def setUser(userName):
     global user
@@ -24,6 +26,7 @@ def home():
     if user in session:
         data = pumpkin.DB_Manager(DB_FILE)
         return render_template('user.html', user_name = user)
+
     return render_template("hometemp.html")
 
 '''@app.route('/login_menu')
@@ -107,8 +110,12 @@ def register_menu():
     render_template("<>.html")
 '''
 
-@app.route("/search", methods = ["POST", "GET"])
+@app.route("/search", methods = ["GET"])
 def search():
+
+    choice = request.form['choice']
+    search = request.form['search']
+
     okey = "b7503b8d"
     omdb = "http://www.omdbapi.com/?apikey=" + okey + "&"
 
