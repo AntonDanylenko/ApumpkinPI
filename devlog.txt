@@ -105,4 +105,10 @@ Update movie.html and register.html to look prettier.
 Started using building blocks for certain buttons and forms
 --------------------------------------------------------------
 
+zaneW -- 2018-12-06 1:17
+--------------------------------------------------------------
+Changed links in templates so that when clicked, a page 
+actually renders instead of errors.
+--------------------------------------------------------------
+
 
