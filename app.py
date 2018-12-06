@@ -7,8 +7,77 @@ import json, urllib, os
 
 from flask import Flask, render_template, flash, request, session
 
-app = Flask(__name__)
+from utils import db as pumpkin
 
+DB_FILE = "data/ApumpkinPI.db"
+app = Flask(__name__)
+user = None
+currStory = None
+app.secret_key = os.urandom(32)
+
+def setUser(userName):
+    global user
+    user = userName
+
+@app.route('/')
+def home():
+    if user in session:
+        data = pumpkin.DB_Manager(DB_FILE)
+        return render_template('user.html', user_name = user)
+    return render_template("hometemp.html")
+
+@app.route('/login_menu')
+def login():
+    return render_template("homelogin.html")
+
+@app.route('/register_menu')
+def register():
+    return render_template("homeregister.html")
+
+@app.route('/auth', methods=['POST'])
+def auth():
+    # instantiates DB_Manager with path to DB_FILE
+    data = pumpkin.DB_Manager(DB_FILE)
+    username, password = request.form["username"], request.form['password']
+    # LOGGING IN
+    if request.form["submit"] == "Login":
+        if username != "" and password != "" and data.verifyUser(username, password ) :
+            session[username] = password
+            setUser(username)
+            data.save()
+            return redirect(url_for('home'))
+        # user was found in DB but password did not match
+        elif data.findUser(username):
+            flash('Incorrect password!')
+        # user not found in DB at all
+        else:
+            flash('Incorrect username!')
+        data.save()
+        return render_template("homelogin.html")
+    # REGISTERING
+    else:
+        if len(username.strip()) != 0 and not data.findUser(username):
+            if len(password.strip()) != 0:
+                # add the account to DB
+                data.registerUser(username, password)
+                data.save()
+                return redirect(url_for('home'))
+            else:
+                flash('Password needs to have stuff in it')
+        elif len(username) == 0:
+            flash("Username needs to have stuff in it")
+        else:
+            flash("Username already taken!")
+        # TRY TO REGISTER AGAIN
+        return render_template("homeregister.html")
+
+@app.route('/logout')
+def logout():
+    session.pop(user, None)
+    setUser(None)
+    return redirect(url_for('home'))
+
+'''
 choice = ""
 search = ""
 
@@ -28,7 +97,6 @@ def login_menu():
 def register_menu():
     return render_template("homeregister.html")
 
-'''
 @app.route("/movies")
     render_template("<>.html")
 

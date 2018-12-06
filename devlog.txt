@@ -111,4 +111,9 @@ Changed links in templates so that when clicked, a page
 actually renders instead of errors.
 --------------------------------------------------------------
 
-
+zaneW -- 2018-12-06 1:35
+--------------------------------------------------------------
+Changed login, register and logout to reflect azrael's from
+P0, changed, but might need to further bring into line with
+necessary components for this project.
+--------------------------------------------------------------
