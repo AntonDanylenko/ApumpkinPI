@@ -5,7 +5,7 @@
 
 import json, urllib, os
 
-from flask import Flask, render_template, flash, request, session
+from flask import Flask, render_template, flash, request, session, redirect, url_for
 
 from utils import db as pumpkin
 
@@ -26,21 +26,21 @@ def home():
         return render_template('user.html', user_name = user)
     return render_template("hometemp.html")
 
-@app.route('/login_menu')
+'''@app.route('/login_menu')
 def login():
-    return render_template("homelogin.html")
+    return redirect(url_for("auth"))
 
 @app.route('/register_menu')
 def register():
-    return render_template("homeregister.html")
+    return redirect(url_for("auth"))'''
 
-@app.route('/auth', methods=['POST'])
+@app.route('/auth', methods=['GET'])
 def auth():
     # instantiates DB_Manager with path to DB_FILE
     data = pumpkin.DB_Manager(DB_FILE)
-    username, password = request.form["username"], request.form['password']
     # LOGGING IN
-    if request.form["submit"] == "Login":
+    if request.form["action"] == "Login":
+        username, password = request.form["username_login"], request.form['password_login']
         if username != "" and password != "" and data.verifyUser(username, password ) :
             session[username] = password
             setUser(username)
@@ -55,7 +55,8 @@ def auth():
         data.save()
         return render_template("homelogin.html")
     # REGISTERING
-    else:
+    elif request.form["action"] == "Create Account":
+        username, password = request.form["username_reg"], request.form['password_reg']
         if len(username.strip()) != 0 and not data.findUser(username):
             if len(password.strip()) != 0:
                 # add the account to DB
@@ -69,7 +70,7 @@ def auth():
         else:
             flash("Username already taken!")
         # TRY TO REGISTER AGAIN
-        return render_template("homeregister.html")
+        return render_template("hometemp.html")
 
 @app.route('/logout')
 def logout():

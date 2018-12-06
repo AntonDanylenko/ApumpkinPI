@@ -10,36 +10,39 @@
         <div class="top-bar-right">
           <!--<a href="/login" class="button primary">Login</a>-->
           <ul class="dropdown menu" data-dropdown-menu>
-            <!--<form action="/login_menu" method="GET">
-              <li><input type="submit" name="action" class="button primary" value="Login"></li>
-            </form>-->
-            <!--<form action="/register_menu" method="GET">
-              <li><input type="submit" name="action" class="button secondary" value="Create Account"></li>
-            </form>-->
-            <li>
-              <form action="/login_menu" method="GET">
-                <a href="/login_menu">Login</a>
+            <form action="/auth" method="GET">
+              <!--<form action="/login_menu" method="GET">
+                <li><input type="submit" name="action" class="button primary" value="Login"></li>
+              </form>-->
+              <!--<form action="/register_menu" method="GET">
+                <li><input type="submit" name="action" class="button secondary" value="Create Account"></li>
+              </form>-->
+              <li>
+                Login
                 <ul class="menu">
-                  <li><a href="#"> Item 1 </a></li>
                   <li>{% set msgs = get_flashed_messages() %}
                   {% for msg in msgs %}
                   <p>Msg: {{ msg }}</p>
                   {% endfor %}</li>
-                  <li><input type="text" placeholder="username" name="username"maxlength="25"></li>
+                  <li><input type="text" placeholder="username" name="username_login" maxlength="25"></li>
                   <!--<li><label for="password">Password: </label>-->
-                  <li><input type="password" placeholder="password" name="password" maxlength="25"></li>
+                  <li><input type="password" placeholder="password" name="password_login" maxlength="25"></li>
                   <li><input type="submit" name="action" class="success button" value="Login"></li>
                 </ul>
-              </form>
-            </li>
-            <li>
-              <form action="/register_menu" method="GET">
-                <a href="/register_menu">Register</a>
+              </li>
+              <li>
+                Register
                 <ul class="menu">
-                  <li><a href="#">Item 1</a></li>
+                  <li><label for="username">Username: </label>
+                  <input type="text" name="username_reg" maxlength="25" required></li>
+                  <li><label for="password">Password: </label>
+                  <input type="password" name="password_reg" maxlength="25" required></li>
+                  <li><label for="password_check">Retype password: </label>
+                  <input type="password" name="password_check" maxlength="25" required></li>
+                  <li><input type="submit" name="action" class="success button" value="Create Account"></li>
                 </ul>
-              </form>
-            </li>
+              </li>
+            </form>
           </ul>
         </div>
       </div>
