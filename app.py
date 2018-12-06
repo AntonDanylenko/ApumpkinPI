@@ -34,7 +34,7 @@ def login():
 def register():
     return redirect(url_for("auth"))'''
 
-@app.route('/auth', methods=['GET'])
+@app.route('/auth', methods=['POST'])
 def auth():
     # instantiates DB_Manager with path to DB_FILE
     data = pumpkin.DB_Manager(DB_FILE)
@@ -54,23 +54,25 @@ def auth():
             flash('Incorrect username!')
         data.save()
         return render_template("homelogin.html")
-    # REGISTERING
-    elif request.form["action"] == "Create Account":
-        username, password = request.form["username_reg"], request.form['password_reg']
-        if len(username.strip()) != 0 and not data.findUser(username):
-            if len(password.strip()) != 0:
-                # add the account to DB
-                data.registerUser(username, password)
-                data.save()
-                return redirect(url_for('home'))
-            else:
-                flash('Password needs to have stuff in it')
-        elif len(username) == 0:
-            flash("Username needs to have stuff in it")
+
+@app.route('/create_account_action', methods=["POST"])
+def create_account_action():
+    data = pumpkin.DB_Manager(DB_FILE)
+    username, password = request.form["username_reg"], request.form['password_reg']
+    if len(username.strip()) != 0 and not data.findUser(username):
+        if len(password.strip()) != 0:
+            # add the account to DB
+            data.registerUser(username, password)
+            data.save()
+            return redirect(url_for('home'))
         else:
-            flash("Username already taken!")
-        # TRY TO REGISTER AGAIN
-        return render_template("hometemp.html")
+            flash('Password needs to have stuff in it')
+    elif len(username) == 0:
+        flash("Username needs to have stuff in it")
+    else:
+        flash("Username already taken!")
+    # TRY TO REGISTER AGAIN
+    return render_template("hometemp.html")
 
 @app.route('/logout')
 def logout():
