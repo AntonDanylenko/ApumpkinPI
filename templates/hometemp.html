@@ -18,9 +18,9 @@
             </form>-->
             <li>
               <form action="/login_menu" method="GET">
-                <a href="#">Login</a>
+                <a href="/login_menu">Login</a>
                 <ul class="menu">
-                  <li><a href="#">Item 1</a></li>
+                  <li><a href="#"> Item 1 </a></li>
                   <li>{% set msgs = get_flashed_messages() %}
                   {% for msg in msgs %}
                   <p>Msg: {{ msg }}</p>
@@ -34,7 +34,7 @@
             </li>
             <li>
               <form action="/register_menu" method="GET">
-                <a href="#">Register</a>
+                <a href="/register_menu">Register</a>
                 <ul class="menu">
                   <li><a href="#">Item 1</a></li>
                 </ul>
