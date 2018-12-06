@@ -83,5 +83,18 @@ Removed "recommended movies" section of html. Have decided
 derekS -- 2018-12-05 14:05
 --------------------------------------------------------------
 Tried to finish search functionality on app.py
-THere are bugs.
+There are bugs.
+--------------------------------------------------------------
+
+antonD -- 2018-12-05 23:24
+--------------------------------------------------------------
+First, separated the login and register menus from the homepage,
+onto their own html files. Attempted to have the menus come out
+when the user pressed either login or register. However, when I
+tried adding the sub-navbar, it either stuck to the search sub-
+navbar, or went below it.
+Second, scrapped separate file idea and decided to make the menus
+dropdown when the user pressed login or register. However, tutorial
+said I had to add a bunch of javascript files to make the dropdowns
+work, and I didn't know how to do that.
 --------------------------------------------------------------
