@@ -8,9 +8,17 @@
           <h1>EncycloCinema</h1>
         </div>
         <div class="top-bar-right">
-          <form>
-            <a href="/login" class="button primary">Login</a>
-            <a href="/register" class="button secondary">Register</a>
+          <form action="/login" method="POST">
+            <!--<a href="/login" class="button primary">Login</a>-->
+            <ul class="menu">
+              <!--<li><label for="username">Username: </label>-->
+              <li><input type="text" placeholder="username" name="username" placeholder="Search" maxlength="25"></li>
+              <!--<li><label for="password">Password: </label>-->
+              <li><input type="password" placeholder="password" name="password" maxlength="25"></li>
+              <li><input type="submit" name="action" class="button primary" value="Login"></li>
+              <!--<a href="/register" class="button secondary">Register</a>-->
+              <li><input type="submit" name="action" class="button secondary" value="Create Account"></li>
+            </ul>
           </form>
         </div>
       </div>
