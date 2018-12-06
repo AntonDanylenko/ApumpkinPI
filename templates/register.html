@@ -7,7 +7,7 @@
 <p style="color: red">{{msg}}</p>
 {% endfor %}
 <center>
-<h3 class="top-block"> Register</h1>
+<!--<h3 class="top-block"> Register</h1>
   
 <form>
 	<div class="grid-x grid-padding-x">
@@ -41,6 +41,31 @@
 </form>
 <form action="/">
   <button> <a href="/" class="button">Go back </a></button>
+</form> -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+
+<form>
+  <div class="form-icons">
+    <h4>Register for an account</h4>
+
+    <div class="input-group">
+      <span class="input-group-label">
+        <i class="fa fa-user"></i>
+      </span>
+      <input class="input-group-field" type="text" placeholder="Full name">
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-label">
+        <i class="fa fa-key"></i>
+      </span>
+      <input class="input-group-field" type="text" placeholder="Password">
+    </div>
+  </div>
+
+  <button class="success button">Sign Up</button>
 </form>
+
+
 {% endblock %}
 </center>

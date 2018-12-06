@@ -1,33 +1,55 @@
 {% extends "template.html" %}
 {% block title %} {{title}} {% endblock %}
 {% block body %}
-<h1> {{title}} </h1>
+<center>
+<h1 class="top-block"> MOVIE {{title}} </h1>
 
 <article class="grid-container">
     <div class="grid-x grid-padding-y grid-margin-x">
-        <div class="cell"> {{description}} </div>
+        <div class="cell"> 
+			I think there's an artist hidden in the bottom of every single one of us. In nature, dead trees are just as normal as live trees. This is the time to get out all your flustrations, much better than kicking the dog around the house or taking it out on your spouse. It's almost like something out of a fairytale book. Let's build an almighty mountain.
+			Description:
+			{{description}} </div>
     </div>
 
     <div class="grid-x grid-padding-y grid-margin-x">
-        <div class="cell medium-4"> {{year}} </div>
-        <div class="cell medium-4"> {{genre}} </div>
-        <div class="cell medium-4"> {{rating}} </div>
-    </div>
-
-    <div class="grid-x grid-padding-y grid-margin-x">
-        <div class="cell"> {{actors}} </div>
+        <div class="cell medium-4"> Work on one thing at a time. 
+			Year:
+			{{year}} </div>
+        <div class="cell medium-4"> There we go. 
+			Genre:
+			{{genre}} </div>
+        <div class="cell medium-4"> We'll play with clouds today.
+			Rating:
+			{{rating}} </div>
     </div>
 
     <div class="grid-x grid-padding-y grid-margin-x">
         <div class="cell"> 
+			Making all those little fluffies that live in the clouds. Poor old tree. It just happens - whether or not you worried about it or tried to plan it. I'm gonna add just a tiny little amount of Prussian Blue. 
+			Actors:
+			{{actors}} </div>
+    </div>
+
+    <div class="grid-x grid-padding-y grid-margin-x">
+        <div class="cell"> 
+			You can get away with a lot. Now we can begin working on lots of happy little things. You can bend rivers. But when I get home, the only thing I have power over is the garbage. The more we do this - the more it will do good things to our heart. Just think about these things in your mind - then bring them into your world. La- da- da- da- dah. Just be happy.	
+			Actors:
             {{author}}
             {{critique}}
         </div>
     </div>
 
     <div class="grid-x grid-padding-y grid-margin-x">
-        <div class="cell medium-6"> {{mposter}} </div>
-        <div class="cell medium-6"> {{bposter}} </div>
+        <div class="cell medium-6"> 
+			<img src="https://images05.military.com/sites/default/files/styles/full/public/media/people/2013/05/bobrosspainting.jpg?itok=A3G_e8MM"> 
+			Movie Poster:
+			{{mposter}} </div>
+        <div class="cell medium-6"> 
+			<img src="https://i.ytimg.com/vi/nJGCVFn57U8/maxresdefault.jpg">
+			Book Poster:
+			{{bposter}} </div>
     </div>
-    <a href="#" class="secondary button">Return</a></p>
+    <a class="button button-rounded-hover" href="#">Return</a>
 {% endblock %}
+</center>

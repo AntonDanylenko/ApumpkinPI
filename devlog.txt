@@ -98,3 +98,11 @@ dropdown when the user pressed login or register. However, tutorial
 said I had to add a bunch of javascript files to make the dropdowns
 work, and I didn't know how to do that.
 --------------------------------------------------------------
+
+huiminW -- 2018-12-06 0:29
+--------------------------------------------------------------
+Update movie.html and register.html to look prettier.
+Started using building blocks for certain buttons and forms
+--------------------------------------------------------------
+
+
