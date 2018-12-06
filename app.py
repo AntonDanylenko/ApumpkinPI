@@ -18,83 +18,15 @@ def generate():
     #choice = request.form["choice"]
     #search = request.form["search"]
 
-    return render_template("homepage.html")
+    return render_template("hometemp.html")
 
-@app.route('/login', methods=['POST'])
-def authenticate():
-    '''
-    checks user credentials
-    logs user in and redirects to home page if username-password pair is correct
-    else flashes user and redirects back to landing
-    '''
-    # get inputs and action type
-    username = request.form['username']
-    password = request.form['password']
-    action = request.form['action']
+@app.route("/login_menu")
+def login_menu():
+    return render_template("homelogin.html")
 
-    # if they're trying to log in
-    if (action == 'Login'):
-        # if either input is blank, redirect them back to landing
-        if (username == '' or password == ''):
-            flash('Invalid username or password!')
-            return redirect(url_for('root_redirect'))
-        # stores success value of auth fxn in dbm
-        success = dbm.auth_user(username, password)
-
-        # if login successful
-        if success:
-            # store username in cookies and send them home
-            session['username'] = username
-            return redirect(url_for('/'))
-        # otherwise flash them and send them back to landing
-        else:
-            flash('Incorrect username or password!')
-            return redirect(url_for('landing'))
-
-    # if they want to create an account
-    elif (action == 'Create Account'):
-        return redirect(url_for('create_account'))
-
-@app.route('/create_account')
-def create_account():
-    return render_template('create_account.html')
-
-@app.route('/create_account_action', methods=["POST"])
-def create_account_action():
-    username = request.form['username']
-    password = request.form['password']
-    password_check = request.form['password_check']
-
-    if username == '' or password == '' or password_check == '' or ' ' in username or ' ' in password or ' ' in password_check:
-        flash('Invalid username or password!')
-        return redirect(url_for('create_account'))
-
-    if password != password_check:
-        flash('Passwords don\'t match!')
-        return redirect(url_for('create_account'))
-
-    success = dbm.register(username, password)
-
-    # if account creation successful
-    if success:
-        # store username in cookies and send them home
-        flash('Account creation successful!')
-        return redirect(url_for('landing'))
-    # otherwise flash them and send them back to landing
-    else:
-        flash('Username taken!')
-        return redirect(url_for('create_account'))
-
-@app.route('/logout')
-def logout():
-    '''
-    if user is logged in, pops username from cookies
-    regardless, redirects to landing page
-    '''
-    if 'username' in session:
-        session.pop('username')
-    return redirect(url_for('landing'))
-
+@app.route("/register_menu")
+def register_menu():
+    return render_template("homeregister.html")
 
 '''
 @app.route("/movies")

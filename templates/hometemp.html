@@ -1,0 +1,73 @@
+{% extends "template.html" %}
+{% block title %} Welcome {% endblock %}
+{% block body %}
+<div class="grid-container" style="max-width: 100rem">
+  <div class="contain-to-grid sticky">
+     <div class="top-bar">
+        <div class="top-bar-left">
+          <h1>EncycloCinema</h1>
+        </div>
+        <div class="top-bar-right">
+          <!--<a href="/login" class="button primary">Login</a>-->
+          <ul class="dropdown menu" data-dropdown-menu>
+            <!--<form action="/login_menu" method="GET">
+              <li><input type="submit" name="action" class="button primary" value="Login"></li>
+            </form>-->
+            <!--<form action="/register_menu" method="GET">
+              <li><input type="submit" name="action" class="button secondary" value="Create Account"></li>
+            </form>-->
+            <li>
+              <form action="/login_menu" method="GET">
+                <a href="#">Login</a>
+                <ul class="menu">
+                  <li><a href="#">Item 1</a></li>
+                  <li>{% set msgs = get_flashed_messages() %}
+                  {% for msg in msgs %}
+                  <p>Msg: {{ msg }}</p>
+                  {% endfor %}</li>
+                  <li><input type="text" placeholder="username" name="username"maxlength="25"></li>
+                  <!--<li><label for="password">Password: </label>-->
+                  <li><input type="password" placeholder="password" name="password" maxlength="25"></li>
+                  <li><input type="submit" name="action" class="success button" value="Login"></li>
+                </ul>
+              </form>
+            </li>
+            <li>
+              <form action="/register_menu" method="GET">
+                <a href="#">Register</a>
+                <ul class="menu">
+                  <li><a href="#">Item 1</a></li>
+                </ul>
+              </form>
+            </li>
+          </ul>
+        </div>
+      </div>
+  </div>
+  <div class="grid-x">
+    <div class="contain-to-grid sticky">
+      <div class="top-bar">
+        <div class="top-bar-left">
+          <ul class="menu">
+            <form action = "/search" method = "GET">
+              <li><select name="choice">
+                <option value="name">Movie Name</option>
+                <option value="date">Date of Release</option>
+                <option value="cast">Cast Member</option>
+                <option value="genre">Genre</option>
+              </select></li>
+            </form>
+            <li><input type="text" placeholder="Search" name="search"></li>
+            <li><a href="/search" class="success button" type="submit">Search</a></li>
+          </ul>
+        </div>
+      </div>
+      <!--{% block dropdown %}You should not be here{% endblock %}-->
+    </div>
+  </div>
+  <br>
+  <div>
+      {{recommendation}}
+  </div>
+</div>
+{% endblock %}

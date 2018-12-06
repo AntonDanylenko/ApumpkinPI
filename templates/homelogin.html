@@ -1,0 +1,20 @@
+{% extends "hometemp.html" %}
+{% block title %} Welcome | Login {% endblock %}
+{% block dropdown %}
+<div class="top-bar">
+  <div class="top-bar-right">
+    <form action="/login" method="POST">
+      <ul class="vertical menu align-center">
+        {% set msgs = get_flashed_messages() %}
+        {% for msg in msgs %}
+        <p>Msg: {{ msg }}</p>
+        {% endfor %}
+        <li><input type="text" placeholder="username" name="username"maxlength="25">
+        <!--<li><label for="password">Password: </label>-->
+        <input type="password" placeholder="password" name="password" maxlength="25"></li>
+        <li><input type="submit" name="action" class="success button" value="Login"></li>
+      </ul>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -12,9 +12,15 @@
             <!--<a href="/login" class="button primary">Login</a>-->
             <ul class="menu">
               <!--<li><label for="username">Username: </label>-->
-              <li><input type="text" placeholder="username" name="username" placeholder="Search" maxlength="25"></li>
-              <!--<li><label for="password">Password: </label>-->
-              <li><input type="password" placeholder="password" name="password" maxlength="25"></li>
+              <ul class="vertical menu align-center">
+                {% set msgs = get_flashed_messages() %}
+                {% for msg in msgs %}
+                <p>Msg: {{ msg }}</p>
+                {% endfor %}
+                <li><input type="text" placeholder="username" name="username" placeholder="Search" maxlength="25">
+                <!--<li><label for="password">Password: </label>-->
+                <input type="password" placeholder="password" name="password" maxlength="25"></li>
+              </ul>
               <li><input type="submit" name="action" class="button primary" value="Login"></li>
               <!--<a href="/register" class="button secondary">Register</a>-->
               <li><input type="submit" name="action" class="button secondary" value="Create Account"></li>
@@ -47,26 +53,6 @@
   <div>
       {{recommendation}}
   </div>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
   <!--<div>
     <div class="large-12 cell">
       <h1>EncycloCinema</h1>
