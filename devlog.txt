@@ -117,3 +117,10 @@ Changed login, register and logout to reflect azrael's from
 P0, changed, but might need to further bring into line with
 necessary components for this project.
 --------------------------------------------------------------
+
+huiminW -- 2018-12-06 15:04
+--------------------------------------------------------------
+Add flip cards building component to movie.html
+--------------------------------------------------------------
+
+
