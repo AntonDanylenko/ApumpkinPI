@@ -1,0 +1,11 @@
+{% extends "template.html" %}
+{% block title %} Favorites {% endblock %}
+{% block body %}
+<center>
+
+<h1 class="top-block"> Favorites </h1>
+{% for row in printList %}
+    <p> {{row}} </p>
+{% endfor %}
+{% endblock %}
+</center>

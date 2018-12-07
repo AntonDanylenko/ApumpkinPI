@@ -5,15 +5,16 @@
 <img src="../static/Encyclocinema.png">
 <div class="grid-margin-x grid-padding-y">
     <div class="cell home medium-6">
+        {% set msgs = get_flashed_messages() %}
+            {% for msg in msgs %}
+            <p>Msg: {{ msg }}</p>
+            {% endfor %}
+
         {% if loggedin %}
         <h3> Welcome, {{user_name}}! </h3>
         {% else %} 
             <ul class="menu">
                 <form action="/auth" method="POST" class="center">
-                    <li>{% set msgs = get_flashed_messages() %}
-                    {% for msg in msgs %}
-                    <p>Msg: {{ msg }}</p>
-                    {% endfor %}</li>
                     <li><input type="text" placeholder="username" name="username_login" maxlength="25"></li>
                     <!--<li><label for="password">Password: </label>-->
                     <li><input type="password" placeholder="password" name="password_login" maxlength="25"></li>
@@ -45,7 +46,7 @@
 {% if loggedin %}
 <div class="grid-margin-x grid-padding-y">
     <div class="cell home medium-6">
-        <form action="/placeholder">
+        <form action="/favorites">
           <button class="button button-rounded-hover">
               {{user_name}}'s Favorites
           </button>
