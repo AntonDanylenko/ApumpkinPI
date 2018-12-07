@@ -138,6 +138,14 @@ Changed var name session to loggedin in hometemp cause session
 huiminW -- 2018-12-07 00:15
 --------------------------------------------------------------
 Added logo and made hometemp prettier.
+However, my return buttons are wack. The value of them are
+    outside of the buttton and the button goes to search.
+--------------------------------------------------------------
+
+huiminW -- 2018-12-07 14:22
+--------------------------------------------------------------
+Found missing = to fix broken return.
+Editted hometemp to have pretty buttons too.
 --------------------------------------------------------------
 
 
