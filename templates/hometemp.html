@@ -3,13 +3,13 @@
 {% block body %}
 <center>
 <img src="../static/Encyclocinema.png">
-<div class="grid-x grid-margin-x grid-padding-y">
-    <div class="cell home medium-12">
+<div class="grid-margin-x grid-padding-y">
+    <div class="cell home medium-6">
         {% if loggedin %}
         <h3> Welcome, {{user_name}}! </h3>
         {% else %} 
-                <form action="/auth" method="POST">
-                  <ul class="menu">
+            <ul class="menu">
+                <form action="/auth" method="POST" class="center">
                     <li>{% set msgs = get_flashed_messages() %}
                     {% for msg in msgs %}
                     <p>Msg: {{ msg }}</p>
@@ -17,21 +17,23 @@
                     <li><input type="text" placeholder="username" name="username_login" maxlength="25"></li>
                     <!--<li><label for="password">Password: </label>-->
                     <li><input type="password" placeholder="password" name="password_login" maxlength="25"></li>
-                    <li><input type="submit" name="action" class="success button" value="Login"></li>
-                  
+                    <li><center><input type="submit" name="action" class="success button" value="Login"></center></li>
                 </form>
+                  </ul>
                 <br>
-                <form action="/create_account_action" method="POST">
-                  <ul class="menu">
+                <ul class="menu">
+                <form action="/create_account_action" method="POST" class="center">
                     <li><input type="text" placeholder="username" name="username_reg" maxlength="25" required></li>
                     <li><input type="password" placeholder="password" name="password_reg" maxlength="25" required></li>
                     <li><input type="password" placeholder="re-type password" name="password_check" maxlength="25" required></li>
-                    <li><input type="submit" name="action" class="success button" value="Create Account"></li>
-                  </ul>
+                    <li><center><input type="submit" name="action" class="success button" value="Create Account"></center></li>
                 </form>
+                </ul>
         {% endif %}
     </div>
-    <div class="cell home medium-12">
+</div>
+<div class="grid-margin-x grid-padding-y">
+    <div class="cell home medium-6">
          <ul class="menu">
             <form action = "/search" method = "GET" class="center">
               <li><select name="choice">
@@ -41,18 +43,21 @@
                 <option value="genre">Genre</option>
               </select></li>
             <li><input type="text" placeholder="Search" name="search"></li>
-            <li><a href="/search" class="success button" type="submit">Search</a></li>
+            <li><center><input type="submit" name="action" class="success button" value="Search"></center></li>
             </form>
          </ul>
     </div>
-     {% if loggedin %}
-        <div class="cell home medium-12">
+</div>
+{% if loggedin %}
+<div class="grid-margin-x grid-padding-y">
+    <div class="cell home medium-6">
         <form action="/placeholder">
           <button class="success button">
               {{user_name}}'s Favorites
           </button>
         </form>
-        </div>
-      {% endif %}
+    </div>
+</div>
+{% endif %}
 {% endblock %}
 </center>
