@@ -135,7 +135,11 @@ def search():
         args['critique'] = critique['results'][0]['link']['suggested_link_text']
         args['link'] = critique['results'][0]['link']['url']
         print(args)
-        return render_template('movie.html', **args)
+        if user in session:
+            sesh = "True"
+        else:
+            sesh = ""
+        return render_template('movie.html', **args, loggedIn = sesh)
     return redirect(url_for("home"))
 
 @app.route("/favorites")

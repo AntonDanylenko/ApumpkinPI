@@ -104,11 +104,18 @@
         <img src={{mposter}}>
        </div>
    </article>
-   <form action="/addfave">
+   {% if loggedIn %}
+    <form action="/addfave">
        <button type="submit" class="button button-rounded-hover"> Favorite </button>
     </form>
-   <form action="/return">
+    <form action="/return">
         <button type="submit" class="button button-rounded-hover"> Return </button>
     </form>
+
+   {% else %}
+    <form action="/return">
+        <button type="submit" class="button button-rounded-hover"> Return </button>
+    </form>
+   {% endif %}
 {% endblock %}
 </center>
