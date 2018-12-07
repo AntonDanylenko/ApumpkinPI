@@ -17,7 +17,7 @@
                     <li><input type="text" placeholder="username" name="username_login" maxlength="25"></li>
                     <!--<li><label for="password">Password: </label>-->
                     <li><input type="password" placeholder="password" name="password_login" maxlength="25"></li>
-                    <li><center><input type="submit" name="action" class="success button" value="Login"></center></li>
+                    <li><center><input type="submit" name="action" class="button button-rounded-hover" value="Login"></center></li>
                 </form>
                   </ul>
                 <br>
@@ -26,7 +26,7 @@
                     <li><input type="text" placeholder="username" name="username_reg" maxlength="25" required></li>
                     <li><input type="password" placeholder="password" name="password_reg" maxlength="25" required></li>
                     <li><input type="password" placeholder="re-type password" name="password_check" maxlength="25" required></li>
-                    <li><center><input type="submit" name="action" class="success button" value="Create Account"></center></li>
+                    <li><center><input type="submit" name="action" class="button button-rounded-hover" value="Create Account"></center></li>
                 </form>
                 </ul>
         {% endif %}
@@ -37,7 +37,7 @@
          <ul class="menu">
             <form action = "/search" method = "GET" class="center">
                 <li><input type="text" placeholder="Movie Name" name="search"></li>
-                <li><center><input type="submit" name="action" class="success button"></center></li>
+                <li><center><input type="submit" name="action" class="button button-rounded-hover"></center></li>
            </form>
          </ul>
     </div>
@@ -46,12 +46,12 @@
 <div class="grid-margin-x grid-padding-y">
     <div class="cell home medium-6">
         <form action="/placeholder">
-          <button class="success button">
+          <button class="button button-rounded-hover">
               {{user_name}}'s Favorites
           </button>
 		</form>
         <form action="/logout">
-          <button class="button secondary">Logout</button>
+          <button class="button button-rounded-hover">Logout</button>
         </form>
   </div>
 </div>
