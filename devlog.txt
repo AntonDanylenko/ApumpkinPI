@@ -154,4 +154,27 @@ Centered "Movie Poster: "
 Added link to critque
 --------------------------------------------------------------
 
+derekS -- 2018-12-07 11:12
+--------------------------------------------------------------
+Finished search function
+--------------------------------------------------------------
+
+huiminW -- 2018-12-08 12:23
+--------------------------------------------------------------
+Cleaned up css and removed cluttering files like
+unnecessary templates
+--------------------------------------------------------------
+
+zaneW -- 2018-12-08 03:41
+--------------------------------------------------------------
+Pushed favorite functionality, lots of bugs and errors, among
+which unable to add links
+--------------------------------------------------------------
+
+huiminW -- 2018-12-08 03:51
+--------------------------------------------------------------
+Removed favorite functionality onto different branch, it 
+wasn't important because unable to add links to the display
+--------------------------------------------------------------
+
 
