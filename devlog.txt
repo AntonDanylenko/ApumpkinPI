@@ -154,6 +154,7 @@ Centered "Movie Poster: "
 Added link to critque
 --------------------------------------------------------------
 
+<<<<<<< HEAD
 derekS -- 2018-12-07 11:12
 --------------------------------------------------------------
 Finished search function
@@ -175,6 +176,11 @@ huiminW -- 2018-12-08 03:51
 --------------------------------------------------------------
 Removed favorite functionality onto different branch, it 
 wasn't important because unable to add links to the display
+=======
+huiminW -- 2018-12-07 15:57
+--------------------------------------------------------------
+Dealt with whitespace in query and removed all traces of favoritng
+>>>>>>> 954740ee34370fa446bff01fd593a2295dbee240
 --------------------------------------------------------------
 
 

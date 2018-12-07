@@ -46,15 +46,10 @@
 {% if loggedin %}
 <div class="grid-margin-x grid-padding-y">
     <div class="cell home medium-6">
-        <form action="/favorites">
-          <button class="button button-rounded-hover">
-              {{user_name}}'s Favorites
-          </button>
-		</form>
         <form action="/logout">
           <button class="button button-rounded-hover">Logout</button>
         </form>
-  </div>
+    </div>
 </div>
 {% endif %}
 {% endblock %}
