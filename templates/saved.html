@@ -1,0 +1,88 @@
+{% extends "template.html" %}
+{% block title %} Welcome {% endblock %}
+{% block body %}
+<div class="grid-container" style="max-width: 100rem">
+  <div class="contain-to-grid sticky">
+     <div class="top-bar">
+        <div class="top-bar-left">
+          <h1>EncycloCinema</h1>
+        </div>
+        <div class="top-bar-right">
+          <!--<a href="/login" class="button primary">Login</a>-->
+          {% if loggedin %}
+            Welcome, {{user_name}}!
+          {% else %}
+          <ul class="dropdown menu" data-dropdown-menu>
+              <!--<form action="/login_menu" method="GET">
+                <li><input type="submit" name="action" class="button primary" value="Login"></li>
+              </form>-->
+              <!--<form action="/register_menu" method="GET">
+                <li><input type="submit" name="action" class="button secondary" value="Create Account"></li>
+              </form>-->
+              <li>
+                Login
+                <form action="/auth" method="POST">
+                  <ul class="menu">
+                    <li>{% set msgs = get_flashed_messages() %}
+                    {% for msg in msgs %}
+                    <p>Msg: {{ msg }}</p>
+                    {% endfor %}</li>
+                    <li><input type="text" placeholder="username" name="username_login" maxlength="25"></li>
+                    <!--<li><label for="password">Password: </label>-->
+                    <li><input type="password" placeholder="password" name="password_login" maxlength="25"></li>
+                    <li><input type="submit" name="action" class="success button" value="Login"></li>
+                  </ul>
+                </form>
+              </li>
+              <li>
+                Register
+                <form action="/create_account_action" method="POST">
+                  <ul class="menu">
+                    <li><label for="username">Username: </label>
+                    <input type="text" name="username_reg" maxlength="25" required></li>
+                    <li><label for="password">Password: </label>
+                    <input type="password" name="password_reg" maxlength="25" required></li>
+                    <li><label for="password_check">Retype password: </label>
+                    <input type="password" name="password_check" maxlength="25" required></li>
+                    <li><input type="submit" name="action" class="success button" value="Create Account"></li>
+                  </ul>
+                </form>
+              </li>
+          </ul>
+          {% endif %}
+        </div>
+      </div>
+  </div>
+  <div class="grid-x">
+    <div class="contain-to-grid sticky">
+      <div class="top-bar">
+        <div class="top-bar-left">
+          <ul class="menu">
+            <form action = "/search" method = "GET">
+              <li><select name="choice">
+                <option value="name">Movie Name</option>
+                <option value="date">Date of Release</option>
+                <option value="cast">Cast Member</option>
+                <option value="genre">Genre</option>
+              </select></li>
+            <li><input type="text" placeholder="Search" name="search"></li>
+            <li><a href="/search" class="success button" type="submit">Search</a></li>
+            </form>
+          </ul>
+        </div>
+      </div>
+      <!--{% block dropdown %}You should not be here{% endblock %}-->
+    </div>
+  </div>
+  <br>
+  <div>
+      {% if loggedin %}
+        <form action="/placeholder">
+          <button class="success button">
+              {{user_name}}'s Favorites
+          </button>
+        </form>
+      {% endif %}
+  </div>
+</div>
+{% endblock %}

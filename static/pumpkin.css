@@ -4,13 +4,14 @@
     background: #1779ba;
 }
 
-.cell:hover{
-    box-shadow: 6px 6px 3px -1px #00668f;
-}
-
 .grid-padding-y {
     padding-top: 0.4rem;
     padding-bottom: 0.4rem;
+}
+
+.grid-margin-x {
+    margin-left: 220px;
+    margin-right: 220px;
 }
 
 .form-label {
@@ -86,28 +87,12 @@
           transform: translateX(0%);
   opacity: 0.25;
 }
-/* from building blocks section. Author: Christine Siu */
 
-form .form-icons {
-  text-align: center;
+.center {
+    margin: 0 auto;
+    width:250px;
 }
 
-form .form-icons h4 {
-  margin-bottom: 1rem;
+.home {
+    border:1px solid #ffffff;
 }
-
-form .form-icons .input-group-label {
-  background-color: #1779ba;
-  border-color: #1779ba;
-}
-
-form .form-icons .input-group-field {
-  border-color: #1779ba;
-}
-
-form .form-icons .fa {
-  color: white;
-  width: 1rem;
-}
-
-
