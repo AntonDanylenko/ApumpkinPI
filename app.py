@@ -14,28 +14,32 @@ app = Flask(__name__)
 user = None
 currStory = None
 app.secret_key = os.urandom(32)
-choice = ""
-search = ""
+
+#_choice = ""
+#search = ""
 
 def setUser(userName):
     global user
     user = userName
 
-@app.route('/')
+@app.route('/', methods=['POST', 'GET'])
 def home():
     if user in session:
         data = pumpkin.DB_Manager(DB_FILE)
         return render_template('user.html', user_name = user)
 
+
     return render_template("hometemp.html")
 
-'''@app.route('/login_menu')
+'''
+@app.route('/login_menu')
 def login():
     return redirect(url_for("auth"))
 
 @app.route('/register_menu')
 def register():
-    return redirect(url_for("auth"))'''
+    return redirect(url_for("auth"))
+'''
 
 @app.route('/auth', methods=['POST'])
 def auth():
@@ -110,42 +114,61 @@ def register_menu():
     render_template("<>.html")
 '''
 
-@app.route("/search", methods = ["GET"])
+@app.route("/search", methods = ["GET", "POST"])
 def search():
 
-    choice = request.form['choice']
-    search = request.form['search']
+    _choice = request.form["choice"]
+    search = request.form["search"]
+    _search = ""
+
+    for i in search: # in case there are multiple word titles
+        if (i == " "):
+            _search = _search + "+"
+        else:
+            _search = _search + i
 
     okey = "b7503b8d"
     omdb = "http://www.omdbapi.com/?apikey=" + okey + "&"
 
     nytkey = "7e297703ad9e4b9595f9d7b9bff79582"
-    nyt = ""
+    nyt = "http://api.nytimes.com/svc/movies/v2/reviews/search.json?query="
+
+    nyplkey = "4w5dn9nta332kd9r"
+    nypl = "http://api.repo.nypl.org/api/v1/items/search?q="
 
     mdata = {}
 
-    if (choice == "name"):
-        mtitle = "t=" + search # gets the movie title that was searched and formats it for the api to work
+    if (_choice == "name"):
+        mtitle = "t=" + _search # gets the movie title that was searched and formats it for the api to work
         omdburl = omdb + mtitle
         x = urllib.request.urlopen(omdburl).read()
         mdata = json.loads(x)
         print(mdata)
 
-    #if (choice == "date"):
-    #    myear = "y=" + request.form['search'] # gets the year that was searched and formats it
-    #    omdburl = omdb + myear
-    #    x = urllib.request.urlopen(omdburl).read()
-    #    mdata = json.loads(x)
+        nyturl = nyt + _search + "&api-key=" + nytkey
+        y = urllib.request.urlopen(nyturl).read()
+        critique = json.loads(y)
+        print(critique)
 
-    #if (choice == "cast"):
-    #if (choice == "genre"):
+        #nyplurl = nypl + _search + "&publicDomainOnly=true&token=" + nyplkey
+        #z = urllib.request.urlopen(nyplurl).read()
+        #book = json.loads(z)
+        #boook = book['nyplAPI']['response']['result'][0]['apItemDetailURL']
+        #a = urllib.request.urlopen(boook).read()
+        #bookposter = json.loads(a)
+        #print(bookposter)
 
     args = {}
     args['title'] = mdata['Title']
     args['year'] = mdata['Year']
     args['actors'] = mdata['Actors']
-    args['rating'] = mdata['Ratings']
-
+    args['rating'] = mdata['Rated']
+    args['genre'] = mdata['Genre']
+    args['desc'] = mdata['Plot']
+    args['mposter'] = mdata['Poster']
+    args['critique'] = critique['results'][0]['link']['suggested_link_text']
+    #args['bposter'] = bookposter['nyplAPI']['response']['sibling_captures']['capture'][0]['imageLinks']['imageLink'][0]['$']
+    print(args)
     return render_template('movie.html', **args)
 
 if (__name__ == "__main__"):
