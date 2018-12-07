@@ -154,4 +154,9 @@ Centered "Movie Poster: "
 Added link to critque
 --------------------------------------------------------------
 
+huiminW -- 2018-12-07 15:57
+--------------------------------------------------------------
+Dealt with whitespace in query and removed all traces of favoritng
+--------------------------------------------------------------
+
 

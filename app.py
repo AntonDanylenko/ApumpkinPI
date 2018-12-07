@@ -12,7 +12,6 @@ from utils import db as pumpkin
 DB_FILE = "data/ApumpkinPI.db"
 app = Flask(__name__)
 user = None
-currMovie = None
 app.secret_key = os.urandom(32)
 
 #_choice = ""
@@ -88,9 +87,12 @@ def ret():
 def search():
 
     search = request.args["search"]
-    if (search == ""):
+    print("SEARCH----------------------------------------")
+    print(search)
+    if (search.strip() == ""):
         flash("Please input something in search!")
     else:
+        search = search.strip()
         _search = ""
 
         for i in search: # in case there are multiple word titles
@@ -117,56 +119,31 @@ def search():
         mdata = json.loads(x)
         print("MDATA--------------------")
         print(mdata)
+        if (mdata['Response'] == 'True'):
+            nyturl = nyt + _search + "&api-key=" + nytkey
+            y = urllib.request.urlopen(nyturl).read()
+            critique = json.loads(y)
+            print("CRITIQUE-----------------")
+            print(critique)
 
-        nyturl = nyt + _search + "&api-key=" + nytkey
-        y = urllib.request.urlopen(nyturl).read()
-        critique = json.loads(y)
-        print("CRITIQUE-----------------")
-        print(critique)
-
-        args = {}
-        args['title'] = mdata['Title']
-        currMovie = args['title']
-        args['year'] = mdata['Year']
-        args['actors'] = mdata['Actors']
-        args['rating'] = mdata['Rated']
-        args['genre'] = mdata['Genre']
-        args['desc'] = mdata['Plot']
-        args['mposter'] = mdata['Poster']
-        args['critique'] = critique['results'][0]['link']['suggested_link_text']
-        args['link'] = critique['results'][0]['link']['url']
-        print(args)
-        if user in session:
-            sesh = "True"
-        else:
-            sesh = ""
-        return render_template('movie.html', **args, loggedIn = sesh)
-    return redirect(url_for("home"))
-
-@app.route("/favorites")
-def favList():
-    data = pumpkin.DB_Manager(DB_FILE)
-
-    if isInDB(data, "favorites"):
-        printList = {}
-        favList = data.table(data, "favorites")
-        for x in favList:
-            if user == x:
-                printList[x] = favList[x]
-                return render_template("favList.html", table=printList)
+            args = {}
+            args['title'] = mdata['Title']
+            args['year'] = mdata['Year']
+            args['actors'] = mdata['Actors']
+            args['rating'] = mdata['Rated']
+            args['genre'] = mdata['Genre']
+            args['desc'] = mdata['Plot']
+            args['mposter'] = mdata['Poster']
+            args['critique'] = critique['results'][0]['link']['suggested_link_text']
+            args['link'] = critique['results'][0]['link']['url']
+            print(args)
+            if user in session:
+                sesh = "True"
             else:
-                flash("No favorites found!")
-                return redirect(url_for("home"))
-
-@app.route("/addfave")
-def addFave():
-    #opens the db, checks if table exists
-    data = pumpkin.DB_Manager(DB_FILE)
-    data.tableCreator("favorites", "user", "movie")
-    #add title of movie as a tuple to the favorites table
-    tup = (currMovie)
-    data.insertRow(data, "favorites", tup)
-    data.save(data)
+                sesh = ""
+            return render_template('movie.html', **args, loggedIn = sesh)
+        else:
+            flash(mdata['Error'])
     return redirect(url_for("home"))
 
 if (__name__ == "__main__"):
