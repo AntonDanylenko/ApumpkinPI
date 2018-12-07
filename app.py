@@ -180,6 +180,32 @@ def search():
     print(args)
     return render_template('movie.html', **args)
 
+@app.route("/favorites")
+def favList():
+    data = pumpkin.DB_Manager(DB_FILE)
+
+    if isInDB(data, "favorites"):
+        printList = {}
+        favList = data.table(data, "favorites")
+        for x in favList:
+            if user == x:
+                printList[x] = favList[x]
+                return render_template("favList.html")
+            else:
+                flash("No favorites found!")
+                return redirect(url_for("home"))
+        
+@app.route("/addfave")
+def addFave():
+    #opens the db, checks if table exists
+    data = pumpkin.DB_Manager(DB_FILE)
+    data.tableCreator(data, "favorites", "user", "movie")
+    #add title of movie as a tuple to the favorites table
+    tup = (title)
+    data.insertRow(data, "favorites", tup)
+    data.save(data)
+    return redirect(url_for("home"))
+
 if (__name__ == "__main__"):
     app.debug = True
     app.run()
