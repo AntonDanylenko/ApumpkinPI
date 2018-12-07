@@ -175,6 +175,7 @@ def search():
     args['desc'] = mdata['Plot']
     args['mposter'] = mdata['Poster']
     args['critique'] = critique['results'][0]['link']['suggested_link_text']
+    args['link'] = critique['results'][0]['link']['url']
     #args['bposter'] = bookposter['nyplAPI']['response']['sibling_captures']['capture'][0]['imageLinks']['imageLink'][0]['$']
     print(args)
     return render_template('movie.html', **args)

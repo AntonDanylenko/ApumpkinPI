@@ -148,4 +148,10 @@ Found missing = to fix broken return.
 Editted hometemp to have pretty buttons too.
 --------------------------------------------------------------
 
+huiminW -- 2018-12-07 14:38
+--------------------------------------------------------------
+Centered "Movie Poster: "
+Added link to critque
+--------------------------------------------------------------
+
 
