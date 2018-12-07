@@ -38,3 +38,6 @@ Fill out the form [here](http://www.omdbapi.com/apikey.aspx?__EVENTTARGET=freeAc
 
 #### Inputting Keys
 Once you've obtained all the keys, replace the keys in ```keys.txt``` with your own, in the order in which the APIs are listed above. One key should occupy each line
+
+### Extra Info That You Probably Want To Know
+Link to the movie critique will not work on Google Chrome. Suggested Browser: Firefox.
