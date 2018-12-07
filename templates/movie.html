@@ -6,25 +6,23 @@
 
 <article class="grid-container">
     <div class="grid-x grid-padding-y grid-margin-x">
-        <div class="cell"> 
+        <div class="cell">
 			<div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
 			<div class="flip-card-inner">
 				<div class="flip-card-inner-front">
 				  <span>Description:</span>
 				</div>
 				<div class="flip-card-inner-back">
-				  <p class="flip-card-inner-back-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo doloremque accusantium, repellendus ex debitis molestias, recusandae dignissimos delectus.{{description}} </p>
-				</div>
+				  <p class="flip-card-inner-back-text">
+            <br> {{desc}} <br>
+          </div>
 			</div>
 		</div>
 	</div>
 </div>
 
-        </div>
-    </div>
-
     <div class="grid-x grid-padding-y grid-margin-x">
-        <div class="cell medium-4"> 
+        <div class="cell medium-4">
 			<div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
 			<div class="flip-card-inner">
 				<div class="flip-card-inner-front">
@@ -32,13 +30,13 @@
 				</div>
 				<div class="flip-card-inner-back">
 				  <p class="flip-card-inner-back-text">
-					Work on one thing at a time.
-					{{year}} </p>
+					{{year}}
+        </p>
 				</div>
 			</div>
 			</div>
 		</div>
-		<div class="cell medium-4"> 
+		<div class="cell medium-4">
 			<div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
 			<div class="flip-card-inner">
 				<div class="flip-card-inner-front">
@@ -46,22 +44,22 @@
 				</div>
 				<div class="flip-card-inner-back">
 				  <p class="flip-card-inner-back-text">
-					There we go.
-					{{genre}} </p>
+					{{genre}}
+					</p>
 				</div>
 			</div>
 			</div>
 		</div>
-		<div class="cell medium-4"> 
+		<div class="cell medium-4">
 			<div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
 			<div class="flip-card-inner">
 				<div class="flip-card-inner-front">
-				  <span>Rating:</span>
+				  <span>Rated:</span>
 				</div>
 				<div class="flip-card-inner-back">
 				  <p class="flip-card-inner-back-text">
-					We'll play with clouds today.
-					{{genre}} </p>
+					{{rating}}
+					 </p>
 				</div>
 			</div>
 			</div>
@@ -69,15 +67,14 @@
     </div>
 
     <div class="grid-x grid-padding-y grid-margin-x">
-        <div class="cell"> 
+        <div class="cell">
 			<div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
 			<div class="flip-card-inner">
 				<div class="flip-card-inner-front">
 					<span>Actors:</span>
 				</div>
                 <div class="flip-card-inner-back">
-		            Making all those little fluffies that live in the clouds. Poor old tree. It just happens - whether or not you worried about it or tried to plan it. I'm gonna add just a tiny little amount of Prussian Blue. 
-			        {{actors}} 
+		            {{actors}}
                 </div>
             </div>
             </div>
@@ -85,15 +82,14 @@
     </div>
 
     <div class="grid-x grid-padding-y grid-margin-x">
-        <div class="cell"> 
+        <div class="cell">
             <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
 			<div class="flip-card-inner">
 				<div class="flip-card-inner-front">
 					<span>Critiques:</span>
 				</div>
                 <div class="flip-card-inner-back">
-		            You can get away with a lot. Now we can begin working on lots of happy little things. You can bend rivers. But when I get home, the only thing I have power over is the garbage. The more we do this - the more it will do good things to our heart. Just think about these things in your mind - then bring them into your world. La- da- da- da- dah. Just be happy.	
-			        {{critique}} 
+		            Read the New York Times Review of {{title}}
                 </div>
             </div>
             </div>
@@ -101,20 +97,19 @@
     </div>
 
     <div class="grid-x grid-padding-y grid-margin-x">
-        <div class="cell medium-6"> 
-			<img src="https://images05.military.com/sites/default/files/styles/full/public/media/people/2013/05/bobrosspainting.jpg?itok=A3G_e8MM"> 
-			Movie Poster:
-			{{mposter}} </div>
-        <div class="cell medium-6"> 
-			<img src="https://i.ytimg.com/vi/nJGCVFn57U8/maxresdefault.jpg">
-			Book Poster:
-			{{bposter}} </div>
+        <div class="cell medium-6">
+				Movie Poster:
+        <img src={{mposter}}>
+       </div>
+        <div class="cell medium-6">
+			<img src={{bposter}}>
+			Book Poster: </div>
     </div>
     <form action="/">
-        <input type="submit" name="action" class="button button-rounded-hover" value="Favorite">
+        <input type="submit" name="action" class="button button-rounded-hover"> Favorite </input>
     </form>
-    <form>
-        <input type="submit" name="action" class="button button-rounded-hover" value="Return">
+    <form action"/return">
+        <input type="submit" name="action" class="button button-rounded-hover"> </input>
     </form>
 {% endblock %}
 </center>
