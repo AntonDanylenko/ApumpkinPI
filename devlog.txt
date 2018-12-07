@@ -123,4 +123,11 @@ huiminW -- 2018-12-06 15:04
 Add flip cards building component to movie.html
 --------------------------------------------------------------
 
+huiminW -- 2018-12-06 23:02
+--------------------------------------------------------------
+Remove login + register if user is logged in.
+Added favorite's link button when user is logged in.
+--------------------------------------------------------------
+
+
 

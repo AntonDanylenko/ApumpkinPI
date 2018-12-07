@@ -9,6 +9,9 @@
         </div>
         <div class="top-bar-right">
           <!--<a href="/login" class="button primary">Login</a>-->
+          {% if session %}
+            Welcome, {{user_name}}!
+          {% else %}
           <ul class="dropdown menu" data-dropdown-menu>
               <!--<form action="/login_menu" method="GET">
                 <li><input type="submit" name="action" class="button primary" value="Login"></li>
@@ -45,8 +48,8 @@
                   </ul>
                 </form>
               </li>
-            </form>
           </ul>
+          {% endif %}
         </div>
       </div>
   </div>
@@ -73,7 +76,13 @@
   </div>
   <br>
   <div>
-      {{recommendation}}
+      {% if session %}
+        <form action="/placeholder">
+          <button class="success button">
+              {{user_name}}'s Favorites
+          </button>
+        </form>
+      {% endif %}
   </div>
 </div>
 {% endblock %}
