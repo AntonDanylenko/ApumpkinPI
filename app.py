@@ -12,7 +12,7 @@ from utils import db as pumpkin
 DB_FILE = "data/ApumpkinPI.db"
 app = Flask(__name__)
 user = None
-currStory = None
+currMovie = None
 app.secret_key = os.urandom(32)
 
 #_choice = ""
@@ -126,6 +126,7 @@ def search():
 
         args = {}
         args['title'] = mdata['Title']
+        currMovie = args['title']
         args['year'] = mdata['Year']
         args['actors'] = mdata['Actors']
         args['rating'] = mdata['Rated']
@@ -163,7 +164,7 @@ def addFave():
     data = pumpkin.DB_Manager(DB_FILE)
     data.tableCreator("favorites", "user", "movie")
     #add title of movie as a tuple to the favorites table
-    tup = (title)
+    tup = (currMovie)
     data.insertRow(data, "favorites", tup)
     data.save(data)
     return redirect(url_for("home"))
