@@ -72,7 +72,7 @@ class DB_Manager:
         c = self.openDB()
         command = "SELECT * FROM '{0}'".format(tableName)
         c.execute(command)
-        print(c.fetchall())
+        return c.fetchall()
 
 
     def save(self):
