@@ -29,14 +29,14 @@ class DB_Manager:
         self.db = sqlite3.connect(self.DB_FILE) # open if file exists, otherwise create
         return self.db.cursor()
 
-    def tableCreator(self, tableName, col0, col1, col2):
+    def tableCreator(self, tableName, col0, col1):
         '''
-        CREATES A 3 COLUMN TABLE IF tableName NOT TAKEN
+        CREATES A 2 COLUMN TABLE IF tableName NOT TAKEN
         ALL PARAMS ARE STRINGS
         '''
         c = self.openDB()
         if not self.isInDB(tableName):
-            command = "CREATE TABLE '{0}'({1}, {2}, {3});".format(tableName, col0, col1, col2)
+            command = "CREATE TABLE '{0}'({1}, {2});".format(tableName, col0, col1)
             c.execute(command)
 
 
@@ -47,7 +47,7 @@ class DB_Manager:
          @data is a tuple containing data to be entered
        '''
        c = self.openDB()
-       command = "INSERT INTO '{0}' VALUES(?, ?, ?)"
+       command = "INSERT INTO '{0}' VALUES(?, ?)"
        c.execute(command.format(tableName), data)
 
 
@@ -197,20 +197,12 @@ class DB_Manager:
         ADDS user TO DATABASE
         '''
         c = self.openDB()
-        command = "SELECT user_id FROM users WHERE user_id = (SELECT max(user_id) FROM users)"
-        c.execute(command)
-        selectedVal = c.fetchone()
-        max_id = 0
-        if selectedVal != None:
-            max_id = selectedVal[0]
-        else:
-            max_id = 0
-            # userName is already in database -- do not continue to add
+        # userName is already in database -- do not continue to add
         if self.findUser(userName):
             return False
         # userName not in database -- continue to add
         else:
-            row = (userName, password, max_id + 1)
+            row = (userName, password)
             self.insertRow('users', row)
             return True
 
@@ -225,6 +217,8 @@ class DB_Manager:
         CHECKS IF userName AND password MATCH THOSE FOUND IN DATABASE
         '''
         c = self.openDB()
+        if not self.isInDB('users'):
+            self.tableCreator('users','user_name','passwords')
         command = "SELECT user_name, passwords FROM users WHERE user_name = {0}".format("'" + userName + "'")
         c.execute(command)
         selectedVal = c.fetchone()

@@ -25,7 +25,7 @@ def setUser(userName):
 def home():
     if user in session:
         data = pumpkin.DB_Manager(DB_FILE)
-        return render_template('user.html', user_name = user)
+        return render_template('movie.html', user_name = user)
 
     return render_template("hometemp.html")
 
@@ -56,7 +56,7 @@ def auth():
         else:
             flash('Incorrect username!')
         data.save()
-        return render_template("homelogin.html")
+        return redirect(url_for("home"))
 
 @app.route('/create_account_action', methods=["POST"])
 def create_account_action():
