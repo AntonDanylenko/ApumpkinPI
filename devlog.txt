@@ -123,4 +123,21 @@ huiminW -- 2018-12-06 15:04
 Add flip cards building component to movie.html
 --------------------------------------------------------------
 
+huiminW -- 2018-12-06 23:02
+--------------------------------------------------------------
+Remove login + register if user is logged in.
+Added favorite's link button when user is logged in.
+--------------------------------------------------------------
+
+huiminW -- 2018-12-06 23:12
+--------------------------------------------------------------
+Changed var name session to loggedin in hometemp cause session
+    was already a variable
+--------------------------------------------------------------
+
+huiminW -- 2018-12-07 00:15
+--------------------------------------------------------------
+Added logo and made hometemp prettier.
+--------------------------------------------------------------
+
 

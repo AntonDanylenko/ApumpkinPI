@@ -26,7 +26,7 @@ def setUser(userName):
 def home():
     if user in session:
         data = pumpkin.DB_Manager(DB_FILE)
-        return render_template('user.html', user_name = user)
+        return render_template('hometemp.html', user_name = user, loggedin = "True")
 
 
     return render_template("hometemp.html")
@@ -60,18 +60,21 @@ def auth():
         else:
             flash('Incorrect username!')
         data.save()
-        return render_template("homelogin.html")
+        return redirect(url_for("home"))
 
 @app.route('/create_account_action', methods=["POST"])
 def create_account_action():
     data = pumpkin.DB_Manager(DB_FILE)
-    username, password = request.form["username_reg"], request.form['password_reg']
+    username, password, password2 = request.form["username_reg"], request.form['password_reg'], request.form['password_check']
     if len(username.strip()) != 0 and not data.findUser(username):
         if len(password.strip()) != 0:
             # add the account to DB
-            data.registerUser(username, password)
-            data.save()
-            return redirect(url_for('home'))
+            if password != password2:
+                flash('Passwords must match')
+            else:
+                data.registerUser(username, password)
+                data.save()
+                return redirect(url_for('home'))
         else:
             flash('Password needs to have stuff in it')
     elif len(username) == 0:
@@ -85,6 +88,10 @@ def create_account_action():
 def logout():
     session.pop(user, None)
     setUser(None)
+    return redirect(url_for('home'))
+
+@app.route('/return')
+def ret():
     return redirect(url_for('home'))
 
 '''
@@ -117,8 +124,7 @@ def register_menu():
 @app.route("/search", methods = ["GET", "POST"])
 def search():
 
-    _choice = request.form["choice"]
-    search = request.form["search"]
+    search = request.args["search"]
     _search = ""
 
     for i in search: # in case there are multiple word titles
@@ -138,25 +144,27 @@ def search():
 
     mdata = {}
 
-    if (_choice == "name"):
-        mtitle = "t=" + _search # gets the movie title that was searched and formats it for the api to work
-        omdburl = omdb + mtitle
-        x = urllib.request.urlopen(omdburl).read()
-        mdata = json.loads(x)
-        print(mdata)
+    #if (_choice == "name"):
+    mtitle = "t=" + _search # gets the movie title that was searched and formats it for the api to work
+    omdburl = omdb + mtitle
+    x = urllib.request.urlopen(omdburl).read()
+    mdata = json.loads(x)
+    print("MDATA--------------------")
+    print(mdata)
 
-        nyturl = nyt + _search + "&api-key=" + nytkey
-        y = urllib.request.urlopen(nyturl).read()
-        critique = json.loads(y)
-        print(critique)
+    nyturl = nyt + _search + "&api-key=" + nytkey
+    y = urllib.request.urlopen(nyturl).read()
+    critique = json.loads(y)
+    print("CRITIQUE-----------------")
+    print(critique)
 
-        #nyplurl = nypl + _search + "&publicDomainOnly=true&token=" + nyplkey
-        #z = urllib.request.urlopen(nyplurl).read()
-        #book = json.loads(z)
-        #boook = book['nyplAPI']['response']['result'][0]['apItemDetailURL']
-        #a = urllib.request.urlopen(boook).read()
-        #bookposter = json.loads(a)
-        #print(bookposter)
+    #nyplurl = nypl + _search + "&publicDomainOnly=true&token=" + nyplkey
+    #z = urllib.request.urlopen(nyplurl).read()
+    #book = json.loads(z)
+    #boook = book['nyplAPI']['response']['result'][0]['apItemDetailURL']
+    #a = urllib.request.urlopen(boook).read()
+    #bookposter = json.loads(a)
+    #print(bookposter)
 
     args = {}
     args['title'] = mdata['Title']
