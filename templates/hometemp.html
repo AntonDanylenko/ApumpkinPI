@@ -9,7 +9,7 @@
         </div>
         <div class="top-bar-right">
           <!--<a href="/login" class="button primary">Login</a>-->
-          {% if session %}
+          {% if loggedin %}
             Welcome, {{user_name}}!
           {% else %}
           <ul class="dropdown menu" data-dropdown-menu>
@@ -76,7 +76,7 @@
   </div>
   <br>
   <div>
-      {% if session %}
+      {% if loggedin %}
         <form action="/placeholder">
           <button class="success button">
               {{user_name}}'s Favorites

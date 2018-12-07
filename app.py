@@ -25,7 +25,7 @@ def setUser(userName):
 def home():
     if user in session:
         data = pumpkin.DB_Manager(DB_FILE)
-        return render_template('hometemp.html', user_name = user, session = "True")
+        return render_template('hometemp.html', user_name = user, loggedin = "True")
 
     return render_template("hometemp.html")
 
